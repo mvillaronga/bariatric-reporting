@@ -13,7 +13,7 @@ function App() {
         mood="Pretty Good."
         currentWeight={201}
         targetWeight={160}
-        height={68}
+        height={65}
         currentChallenges="overeating at meals/large portion sizes, eating rapidly, overeating when feeling emotionally overwhelmed or down, eating late in the evening, and unhealthy snacking between meals."
         reasons="She expressed a desire to improve her overall health and longevity, particularly for the sake of her grandchildren."
         previousDiagnosis="She has been diagnosed with sleep apnea, hypertension, and hypercholesterolemia, and she hopes that weight loss will help her to better manage these conditions. Additionally, she experiences chronic back pain and believes that reducing her weight may alleviate some of her discomfort."
