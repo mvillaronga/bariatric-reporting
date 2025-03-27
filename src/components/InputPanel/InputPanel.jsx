@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './InputPanel.css';
-import HeightInput from './HeightInput'; // New import
+import HeightInput from './HeightInput';
+import ConditionalTextArea from './ConditionalTextArea'; // updated import
+import genderData from '../../data/genderData'; // added import
 
 export default function InputPanel({ onUpdate }) {
     const initialState = {
@@ -109,10 +111,11 @@ export default function InputPanel({ onUpdate }) {
                 Legal Drug Use:
                 <textarea name="legalDrugUse" value={formData.legalDrugUse} onChange={handleChange}></textarea>
             </label>
-            <label>
-                Substance Usage:
-                <textarea name="substanceUsage" value={formData.substanceUsage} onChange={handleChange}></textarea>
-            </label>
+            {/* Removed the existing Substance Usage textarea */}
+            <ConditionalTextArea 
+                label="Has Addiction HIstory" 
+                defaultValue={`${(genderData[formData.gender] || genderData['Female']).pronoun} denies any history of heavy or problemactic substance abuse`} 
+            />
             <button onClick={handleSubmit}>Update Report</button>
         </div>
     );
