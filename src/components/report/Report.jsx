@@ -1,44 +1,85 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CoverSheet from './CoverSheet';
 import Opening from './Opening';
 import PatientInfo from './PatientInfo';
 import Evaluation from './Evaluation';
 import MedicalHistory from './MedicalHistory';
 
-export default function Report() {
+export default function Report({
+    gender,
+    patientName,
+    patientAge,
+    visitDate,
+    mood,
+    currentWeight,
+    targetWeight,
+    height,
+    currentChallenges,
+    reasons,
+    previousDiagnosis,
+    goals,
+    associatedConditions,
+    sleepHours,
+    sleepStatus,
+    currentMedications,
+    legalDrugUse,
+    substanceUsage
+}) {
     return (
         <div>
             <CoverSheet />
             <Opening 
-                gender="Female" 
-                patientName="Ms. Doe" 
-                patientAge={43} 
-                visitDate="March 14, 2025" 
+                gender={gender} 
+                patientName={patientName} 
+                patientAge={patientAge} 
+                visitDate={visitDate} 
             />
             <PatientInfo 
-                patientName="Mrs Doe" 
-                mood="Pretty Good." 
-                gender="Female" 
+                patientName={patientName} 
+                mood={mood} 
+                gender={gender} 
             />
             <Evaluation 
-                gender="Female"
-                currentWeight={201}
-                targetWeight={160}
-                height={68}
-                currentChallenges="overeating at meals/large portion sizes, eating rapidly, overeating when feeling emotionally overwhelmed or down, eating late in the evening, and unhealthy snacking between meals."
-                reasons="She expressed a desire to improve her overall health and longevity, particularly for the sake of her grandchildren."
-                previoiusDiagnosis="She has been diagnosed with sleep apnea, hypertension, and hypercholesterolemia, and she hopes that weight loss will help her to better manage these conditions. Additionally, she experiences chronic back pain and believes that reducing her weight may alleviate some of her discomfort."
-                goals="She also aims to enhance her physical fitness and energy levels."
+                gender={gender}
+                currentWeight={currentWeight}
+                targetWeight={targetWeight}
+                height={height}
+                currentChallenges={currentChallenges}
+                reasons={reasons}
+                previoiusDiagnosis={previousDiagnosis}
+                goals={goals}
             />
             <MedicalHistory 
-                patientName="Ms. Doe"
-                associatedConditions="chronic back pain, hypertension, hypercholesterolemia and sleep apnea"
-                sleepHours="eight"
-                sleepStatus="rested"
-                currentMedications="losartan, phentermine, liraglutide, and fluconazole"
-                legalDrugUse="She does not use any tobacco or cannabis products, nor does she drink any caffeinated beverages. She rarely drinks alcohol."
-                substanceUsage="She denies use of other substances and has no history of heavy or problematic substance use."
+                patientName={patientName}
+                associatedConditions={associatedConditions}
+                sleepHours={sleepHours}
+                sleepStatus={sleepStatus}
+                currentMedications={currentMedications}
+                legalDrugUse={legalDrugUse}
+                substanceUsage={substanceUsage}
             />
         </div>
     );
 }
+
+Report.propTypes = {
+    gender: PropTypes.string.isRequired,
+    patientName: PropTypes.string.isRequired,
+    patientAge: PropTypes.number.isRequired,
+    visitDate: PropTypes.string.isRequired,
+    mood: PropTypes.string.isRequired,
+    currentWeight: PropTypes.number.isRequired,
+    targetWeight: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    currentChallenges: PropTypes.string.isRequired,
+    reasons: PropTypes.string.isRequired,
+    previousDiagnosis: PropTypes.string.isRequired,
+    goals: PropTypes.string.isRequired,
+    associatedConditions: PropTypes.string.isRequired,
+    sleepHours: PropTypes.string.isRequired,
+    sleepStatus: PropTypes.string.isRequired,
+    currentMedications: PropTypes.string.isRequired,
+    legalDrugUse: PropTypes.string.isRequired,
+    substanceUsage: PropTypes.string.isRequired
+};
