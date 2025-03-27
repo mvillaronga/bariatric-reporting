@@ -5,6 +5,7 @@ import Opening from './Opening';
 import PatientInfo from './PatientInfo';
 import Evaluation from './Evaluation';
 import MedicalHistory from './MedicalHistory';
+import Header from './Header';
 
 export default function Report({
     gender,
@@ -24,10 +25,18 @@ export default function Report({
     sleepStatus,
     currentMedications,
     legalDrugUse,
-    substanceUsage
+    substanceUsage,
+    reportDate,
+    subjectName,
+    subjectDOB
 }) {
     return (
         <div>
+            <Header 
+                reportDate={reportDate} 
+                subjectName={subjectName} 
+                subjectDOB={subjectDOB} 
+            />
             <CoverSheet />
             <Opening 
                 gender={gender} 
@@ -81,5 +90,8 @@ Report.propTypes = {
     sleepStatus: PropTypes.string.isRequired,
     currentMedications: PropTypes.string.isRequired,
     legalDrugUse: PropTypes.string.isRequired,
-    substanceUsage: PropTypes.string.isRequired
+    substanceUsage: PropTypes.string.isRequired,
+    reportDate: PropTypes.string.isRequired,
+    subjectName: PropTypes.string.isRequired,
+    subjectDOB: PropTypes.string.isRequired,
 };
