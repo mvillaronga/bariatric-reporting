@@ -45,10 +45,10 @@ function App() {
     };
 
     return (
-        <>
+        <div className="app-container"> {/* Added container */}
             <InputPanel onUpdate={handleUpdate} />
             <Report {...reportData} />
-        </>
+        </div>
     );
 }
 

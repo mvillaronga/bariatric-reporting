@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.app-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.app-container > .input-panel {
+  flex: 0 0 300px; /* fixed width for panel */
+}
+
+.app-container > .report-container {
+  flex: 1;
+}

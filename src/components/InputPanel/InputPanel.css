@@ -1,22 +1,12 @@
 .input-panel {
-    position: fixed;
-    top: 0;
-    left: 0; /* Move panel to the left edge of the screen */
-    width: 300px;
-    height: 100%;
-    background-color: #f9f9f9;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Adjust shadow for left positioning */
-    transition: transform 0.3s ease; /* Use transform for smooth sliding effect */
-    transform: translateX(-100%); /* Initially hide the panel */
-    overflow-y: auto;
+    margin: 1rem auto;
+    max-width: 600px;
     padding: 1rem;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
     font-size: 16px;
     color: #333;
-    line-height: 1.5;
-}
-
-.input-panel.visible {
-    transform: translateX(0); /* Slide panel into view */
+    overflow-y: auto;
 }
 
 .toggle-button {
@@ -67,4 +57,16 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem; /* Increased font size for buttons */
+}
+
+.input-panel label {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.input-panel label input,
+.input-panel label select,
+.input-panel label textarea {
+    width: 100%;
+    margin-top: 0.5rem;
 }
