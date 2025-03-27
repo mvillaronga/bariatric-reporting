@@ -2,6 +2,11 @@ import './App.css'
 import Report from './components/report/Report'
 
 function App() {
+  const currentDate = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   return (
     <>
@@ -9,7 +14,7 @@ function App() {
         gender="Female"
         patientName="Ms. Doe"
         patientAge={43}
-        visitDate="March 14, 2025"
+        visitDate={currentDate}
         mood="Pretty Good."
         currentWeight={201}
         targetWeight={160}
