@@ -1,0 +1,70 @@
+.input-panel {
+    position: fixed;
+    top: 0;
+    left: 0; /* Move panel to the left edge of the screen */
+    width: 300px;
+    height: 100%;
+    background-color: #f9f9f9;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Adjust shadow for left positioning */
+    transition: transform 0.3s ease; /* Use transform for smooth sliding effect */
+    transform: translateX(-100%); /* Initially hide the panel */
+    overflow-y: auto;
+    padding: 1rem;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.input-panel.visible {
+    transform: translateX(0); /* Slide panel into view */
+}
+
+.toggle-button {
+    position: absolute;
+    top: 10px;
+    right: -70px; /* Adjust toggle button to appear on the left edge of the panel */
+    width: 70px;
+    height: 30px;
+    background-color: #646cff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.panel-content h2 {
+    margin-top: 0;
+    font-size: 1.5rem; /* Increased font size for headings */
+    color: #222; /* Darker color for better contrast */
+}
+
+.panel-content label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1rem; /* Increased font size for labels */
+    color: #444; /* Improved contrast */
+}
+
+.panel-content input,
+.panel-content select,
+.panel-content textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem; /* Increased font size for inputs */
+    color: #333; /* Improved text color */
+    background-color: #fff; /* Ensure good contrast with text */
+}
+
+.panel-content button {
+    margin-top: 1rem;
+    padding: 0.75rem 1.25rem; /* Increased padding for better usability */
+    background-color: #4a5cff; /* Slightly darker button color for better contrast */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem; /* Increased font size for buttons */
+}

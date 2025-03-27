@@ -31,7 +31,7 @@ export default function Report({
     subjectDOB
 }) {
     return (
-        <div>
+        <div className="report-container">
             <Header 
                 reportDate={reportDate} 
                 subjectName={subjectName} 
