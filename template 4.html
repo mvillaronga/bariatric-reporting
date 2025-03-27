@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Bariatric Evaluation Report</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; margin: 40px; word-wrap: break-word; }
+        h1, h2 { text-align: center; }
+        .contact-info, .subject, .message, .content-section { margin-bottom: 20px; }
+        .content-section { padding-top: 10px; border-top: 1px solid #ccc; }
+        .indent { margin-left: 20px; }
+        .input-section { margin-bottom: 30px; padding-bottom: 10px; border-bottom: 2px solid #666; }
+        .input-section label { display: block; margin-top: 10px; }
+        @media print {
+            .page-break { page-break-before: always; }
+        }
+    </style>
+    <script>
+        function updateReport() {
+            // Existing dynamic updates
+            document.getElementById('subjectName').innerText = document.getElementById('inputName').value;
+            document.getElementById('subjectDOB').innerText = document.getElementById('inputDOB').value;
+            document.getElementById('reportDate').innerText = document.getElementById('inputReportDate').value;
+            document.getElementById('currentWeight').innerText = document.getElementById('inputWeight').value + " lbs.";
+            document.getElementById('targetWeight').innerText = document.getElementById('inputTargetWeight').value + " lbs.";
+            document.getElementById('currentBMI').innerText = document.getElementById('inputBMI').value;
+            document.getElementById('patientName').innerText = document.getElementById('inputPatientName').value;
+            document.getElementById('patientAge').innerText = document.getElementById('inputPatientAge').value;
+            document.getElementById('evaluationDate').innerText = document.getElementById('inputEvaluationDate').value;
+            document.getElementById('patientMood').innerText = document.getElementById('inputPatientMood').value;
+            document.getElementById('targetBMI').innerText = document.getElementById('inputTargetBMI').value;
+            document.getElementById('patientGender').innerText = document.getElementById('inputPatientGender').value;
+            document.getElementById('bmiClassification').innerText = document.getElementById('inputBMIClassification').value;
+            document.getElementById('previousAttempts').innerText = document.getElementById('inputPreviousAttempts').value;
+            document.getElementById('currentPrescriptions').innerText = document.getElementById('inputCurrentPrescriptions').value;
+            document.getElementById('weightLossChallenges').innerText = document.getElementById('inputWeightLossChallenges').value;
+            document.getElementById('patientGoals').innerText = document.getElementById('inputPatientGoals').value;
+            document.getElementById('targetBMIClassification').innerText = document.getElementById('inputTargetBMIClassification').value;
+            document.getElementById('associatedConditions').innerText = document.getElementById('inputAssociatedConditions').value;
+            document.getElementById('previousDiagnosis').innerText = document.getElementById('inputPreviousDiagnosis').value;
+
+            // Existing Sleep Hours
+            document.getElementById('sleepHours').innerText = document.getElementById('inputSleepHours').value;
+
+            // Sleep Status
+            document.getElementById('sleepStatus').innerText = document.getElementById('inputSleepStatus').value;
+
+            // Current Medications
+            document.getElementById('currentMedications').innerText = document.getElementById('inputCurrentMedications').value;
+
+            // Legal Drug Use
+            document.getElementById('legalDrugUse').innerText = document.getElementById('inputLegalDrugUse').value;
+
+            // Substance Usage
+            document.getElementById('substanceUsage').innerText = document.getElementById('inputSubstanceUsage').value;
+        }
+
+        function printReport() {
+            var content = document.getElementById('printableContent').innerHTML;
+            var originalContent = document.body.innerHTML;
+            document.body.innerHTML = content;
+            window.print();
+            document.body.innerHTML = originalContent;
+        }
+    </script>
+</head>
+<body>
+    <div class="input-section">
+        <label>Patient Name: <input type="text" id="inputPatientName" value="Ms. Doe"></label>
+        <label>Name: <input type="text" id="inputName" value="Mary Doe"></label>
+        <label>Patient Age: <input type="number" id="inputPatientAge" value="43"></label>
+        <label>Patient Gender:
+            <select id="inputPatientGender">
+                <option value="Female" selected>Female</option>
+                <option value="Male">Male</option>
+                <option value="Non-Binary">Non-Binary</option>
+            </select>
+        </label>
+        <label>DOB: <input type="date" id="inputDOB" value="1981-04-08"></label>
+        <label>Report Date: <input type="date" id="inputReportDate" value="2025-03-14"></label>
+        <label>Evaluation Date: <input type="date" id="inputEvaluationDate" value="2025-03-14"></label>
+        <label>Current Weight: <input type="number" id="inputWeight" value="201"></label>
+        <label>Target Weight: <input type="number" id="inputTargetWeight" value="160"></label>
+        <label>Current BMI: <input type="text" id="inputBMI" value="38.0"></label>
+        <label>Target BMI: <input type="text" id="inputTargetBMI" value="30.2"></label>
+        <label>Target BMI Classification: <input type="text" id="inputTargetBMIClassification" value="Obese (Class I)"></label>
+        <label>Patient Mood: <input type="text" id="inputPatientMood" value="Pretty Good"></label>
+        <label>BMI Classification: <input type="text" id="inputBMIClassification" value="Obese"></label>
+        <label>Previous Weight Loss Attempts:<br>
+            <textarea id="inputPreviousAttempts" rows="4" cols="60">Engaging in physical activity, low-fat diet, over-the-counter supplements, phentermine, liraglutide</textarea>
+        </label>
+        <label>Current Prescriptions: <input type="text" id="inputCurrentPrescriptions" value="Obese"></label>
+        <label>Weight Loss Challenges:<br>
+            <textarea id="inputWeightLossChallenges" rows="4" cols="60">overeating at meals/large portion sizes, eating rapidly, overeating when feeling emotionally overwhelmed or down, eating late in the evening, and unhealthy snacking between meals</textarea>
+        </label>
+        <label>Patient Goals:<br>
+            <textarea id="inputPatientGoals" rows="5" cols="60">She expressed a desire to improve her overall health and longevity, particularly for the sake of her grandchildren. She has been diagnosed with sleep apnea, hypertension, and hypercholesterolemia, and she hopes that weight loss will help her to better manage these conditions. Additionally, she experiences chronic back pain and believes that reducing her weight may alleviate some of her discomfort. Ms. Doe also aims to enhance her physical fitness and energy levels.</textarea>
+        </label>
+        <label>Previous Diagnosis:<br>
+          <textarea id="inputPreviousDiagnosis" rows="5" cols="60">She expressed a desire to improve her overall health and longevity, particularly for the sake of her grandchildren. She has been diagnosed with sleep apnea, hypertension, and hypercholesterolemia, and she hopes that weight loss will help her to better manage these conditions. Additionally, she experiences chronic back pain and believes that reducing her weight may alleviate some of her discomfort. Ms. Doe also aims to enhance her physical fitness and energy levels.</textarea>
+      </label>
+      
+
+        <label>Associated Conditions: <input type="text" id="inputAssociatedConditions" value="chronic back pain, hypertension, hypercholesterolemia and sleep apnea"></label>
+        
+        <!-- Sleep Hours entry field -->
+        <label>Sleep Hours: <input type="text" id="inputSleepHours" value="eight"></label>
+
+        <!-- Sleep Status entry field -->
+        <label>Sleep Status: <input type="text" id="inputSleepStatus" value="rested"></label>
+
+        <!-- Current Medications entry field converted to textarea -->
+        <label>Current Medications:<br>
+            <textarea id="inputCurrentMedications" rows="3" cols="60">losartan, phentermine, liraglutide, and fluconazole</textarea>
+        </label>
+
+        <!-- Legal Drug Use entry field converted to textarea -->
+        <label>Legal Drug Use:<br>
+            <textarea id="inputLegalDrugUse" rows="3" cols="60">does not use any tobacco or cannabis products, nor does she drink any caffeinated beverages. She rarely drinks alcohol.</textarea>
+        </label>
+
+        <!-- Substance Usage entry field converted to textarea -->
+        <label>Substance Usage:<br>
+            <textarea id="inputSubstanceUsage" rows="3" cols="60">She denies use of other substances and has no history of heavy or problematic substance use.</textarea>
+        </label>
+
+        <button onclick="updateReport()">Update Report</button>
+        <button onclick="printReport()">Print Report</button>
+    </div>
+
+    <div id="printableContent">
+        <h1>Gemini Bariatric</h1>
+        <div class="contact-info">
+            <strong>Timothy V. Coy, Ph.D.</strong><br>
+            Clinical Psychologist<br>
+            33530 First Way S #102, Federal Way, WA 98003<br>
+            Phone: 206.931.3793<br>
+            Fax: 206.666.4240
+        </div>
+
+        <h2>Facsimile Cover Sheet</h2>
+        <div>Date: 03/17/2025</div>
+        <div>Total Pages: 5</div>
+
+        <div class="subject">
+            <strong>Subject:</strong> <span id="subjectName">Mary Doe</span>; DOB: <span id="subjectDOB">04/08/1981</span><br>
+            Presurgical Psychological Evaluation Report
+        </div>
+
+        <div class="message">
+            <strong>To:</strong> Virginia Mason Franciscan Center for Weight Management<br>
+            <strong>Fax:</strong> 253-944-2093<br>
+            <p>To Whom It May Concern – please feel free to contact me regarding the attached report should you have any questions. I appreciate the referral.</p>
+            <p>Regards,<br>
+            Timothy Coy, Ph.D., Clinical Psychologist</p>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="content-section">
+            <div>Date: <span id="reportDate">March 14, 2025</span></div>
+            <address>
+                Virginia Mason Franciscan Center for Weight Management<br>
+                34503 Ninth Ave. S., Suite 220<br>
+                Federal Way, WA 98003
+            </address>
+
+            <div><strong>RE:</strong> <span id="subjectName">Mary Doe</span>; DOB: <span id="subjectDOB">04/08/1981</span></div>
+
+            <p>To Whom It May Concern,</p>
+
+            <p>It is my understanding that <span id="patientName">Ms. Doe</span>, a <span id="patientAge">43</span>-year-old <span id="bmiClassification">obese</span> <span id="patientGender">female</span>, is a candidate for bariatric
+                surgery. It was my pleasure to conduct a presurgical psychological evaluation with this patient
+                on <span id="evaluationDate">March 14, 2025</span>. This was a telehealth evaluation and the risks and benefits of telehealth
+                were reviewed and consented to by this patient. The evaluation was comprised of a clinical
+                interview, including pertinent questions from the Weight and Lifestyle Inventory, as well as the
+                administration of a pair of psychological self-report inventories – the Patient Health
+                Questionnaire (PHQ-9) and the Generalized Anxiety Disorder Questionnaire (GAD-7).</p>
+
+            <p><span id="patientName">Ms. Doe</span> was cooperative and friendly throughout the evaluation. Rapport was easily
+                established. She seemed alert and was oriented to person, place, date and situation. Her speech
+                was normal in rate, rhythm and volume. Her vocabulary and grammatical structure were within
+                normal limits. There were no obvious difficulties in receptive language. This patient’s
+                autobiographical memory was at least adequate, as she seemed to recall relevant personal history
+                without apparent difficulty. Her thought processes were organized and logical. <span id="patientName">Ms. Doe</span>’s
+                described her present mood as, “<span id="patientMood">Pretty Good.</span>” Her verbal affect was consistent with this and
+                appropriate to the situation. She displayed at least adequate knowledge regarding her pending                
+                bariatric surgery and her responsibilities surrounding her surgery that predict a successful post-
+                operative outcome.</p>
+
+            <p>The following section regarding this patient’s presenting concerns and relevant history are based
+                solely on <span id="patientName">Ms. Doe</span>’s verbal self-report. No other sources of information (e.g. medical records,
+                verbal or written reports from other parties) were available, nor were they requested for this
+                evaluation.</p>
+          
+                <p>Ms. Doe states that She is pursuing bariatric surgery for multiple reasons. First, She is
+                  dissatisfied with Her current weight of <span id="currentWeight">201 lbs.</span> (BMI = <span id="currentBMI">38.0</span> kg/m2, obese classification, class II)
+                  and has struggled to sustain weight loss despite dietary and exercise efforts. She reports first
+                  being concerned about her weight about 25 years ago and She has made a number of weight loss
+                  attempts since that time, including <span id="previousAttempts">engaging in physical activity, following a low-fat diet, and
+                  using over-the-counter weight loss supplements.</span> She is currently prescribed <span id="currentPrescriptions">phentermine and
+                  liraglutide for weight management.</span> She denies any history of purging behaviors. <span id="patientName">Ms. Doe</span> notes
+                  that the following behavioral and emotional factors have historically contributed to her
+                  challenges maintaining a healthy body weight: <span id="weightLossChallenges">overeating at meals/large portion sizes, eating
+                  rapidly, overeating when feeling emotionally overwhelmed or down, eating late in the evening,
+                  and unhealthy snacking between meals.</span> In addition to weight concerns, she is motivated to
+                  pursue surgery due to health issues. <span id="patientGoals">She expressed a desire to improve her overall health and
+                  longevity, particularly for the sake of her grandchildren.</span> <span id="previousDiagnosis">She has been diagnosed with sleep
+                  apnea, hypertension, and hypercholesterolemia, and She hopes that weight loss will help her to
+                  better manage these conditions. Additionally, She experiences chronic back pain and believes
+                  that reducing her weight may alleviate some of her discomfort.</span> <span id="patientName">Ms. Doe</span> also aims to enhance
+                  her physical fitness and energy levels. She is confident that bariatric surgery will help her
+                  achieve her target weight of <span id="targetWeight">160 lbs.</span> (BMI = <span id="targetBMI">30.2</span> kg/m2, <span id="targetBMIClassification">obese classification, class I</span>).</p>
+
+            <p><span id="patientName">Ms. Doe</span>’s medical history is remarkable for a number of conditions other than morbid obesity.
+                As stated above, she has <span id="associatedConditions">chronic back pain, hypertension, hypercholesterolemia and sleep apnea</span>. She is satisfied with her sleep quality and quantity. She estimates a typical total sleep
+                time of <span id="sleepHours">eight</span> hours a night and feels <span id="sleepStatus">rested</span> during the day. <span id="patientName">Ms. Doe</span> takes the following
+                medications: <span id="currentMedications">losartan, phentermine, liraglutide, and fluconazole</span>. <span id="legalDrugUse">She does not use any tobacco
+                or cannabis products, nor does she drink any caffeinated beverages. She rarely drinks alcohol.</span>  
+                <span id="substanceUsage">She denies use of other substances and has no history of heavy or problematic substance use.</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
