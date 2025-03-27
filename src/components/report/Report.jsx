@@ -37,7 +37,6 @@ export default function Report({
                 subjectName={subjectName} 
                 subjectDOB={subjectDOB} 
             />
-            <CoverSheet />
             <Opening 
                 gender={gender} 
                 patientName={patientName} 

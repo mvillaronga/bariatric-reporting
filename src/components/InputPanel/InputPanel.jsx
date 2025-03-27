@@ -4,9 +4,11 @@ import './InputPanel.css';
 import HeightInput from './HeightInput';
 import ConditionalTextArea from './ConditionalTextArea'; // updated import
 import genderData from '../../data/genderData'; // added import
+import ReportInfoPanel from './ReportInfoPanel'; // added import
 
 export default function InputPanel({ onUpdate }) {
     const initialState = {
+        reportDate: new Date().toISOString().substring(0,10), // default to current date (yyyy-mm-dd)
         patientName: '',
         patientAge: '',
         gender: 'Female',
@@ -40,6 +42,7 @@ export default function InputPanel({ onUpdate }) {
     return (
         <div className="input-panel">
             <h2>Input Panel</h2>
+            <ReportInfoPanel formData={formData} handleChange={handleChange} /> {/* Added Report Info panel on top */}
             <label>
                 Patient Name:
                 <input type="text" name="patientName" value={formData.patientName} onChange={handleChange} />
