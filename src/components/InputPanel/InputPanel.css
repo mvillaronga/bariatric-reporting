@@ -70,3 +70,9 @@
     width: 100%;
     margin-top: 0.5rem;
 }
+
+@media print {
+    .input-panel {
+        display: none;
+    }
+}
