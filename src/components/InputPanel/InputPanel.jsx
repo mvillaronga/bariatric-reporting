@@ -6,6 +6,7 @@ import ConditionalTextArea from './ConditionalTextArea'; // updated import
 import genderData from '../../data/genderData'; // added import
 import ReportInfoPanel from './ReportInfoPanel'; // added import
 import PatientInfoPanel from './PatientInfoPanel'; // added import
+import EvaluationPanel from './EvaluationPanel'; // added import
 
 export default function InputPanel({ onUpdate }) {
     const initialState = {
@@ -61,26 +62,7 @@ export default function InputPanel({ onUpdate }) {
             <PatientInfoPanel formData={formData} handleChange={handleChange} setFormData={setFormData} /> {/* Added Patient Info panel below Report Info panel */}
             {/* Removed duplicate PatientInfoPanel fields: Patient Name, Patient Age, Gender, Current Weight, and Height */}
             {/* Removed mood label from here */}
-            <label>
-                Target Weight:
-                <input type="number" name="targetWeight" value={formData.targetWeight} onChange={handleChange} />
-            </label>
-            <label>
-                Current Challenges:
-                <textarea name="currentChallenges" value={formData.currentChallenges} onChange={handleChange}></textarea>
-            </label>
-            <label>
-                Reasons:
-                <textarea name="reasons" value={formData.reasons} onChange={handleChange}></textarea>
-            </label>
-            <label>
-                Previous Diagnosis:
-                <textarea name="previousDiagnosis" value={formData.previousDiagnosis} onChange={handleChange}></textarea>
-            </label>
-            <label>
-                Goals:
-                <textarea name="goals" value={formData.goals} onChange={handleChange}></textarea>
-            </label>
+            <EvaluationPanel formData={formData} handleChange={handleChange} /> {/* New Evaluation panel */}
             <label>
                 Associated Conditions:
                 <textarea name="associatedConditions" value={formData.associatedConditions} onChange={handleChange}></textarea>
