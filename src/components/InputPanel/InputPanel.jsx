@@ -5,12 +5,14 @@ import HeightInput from './HeightInput';
 import ConditionalTextArea from './ConditionalTextArea'; // updated import
 import genderData from '../../data/genderData'; // added import
 import ReportInfoPanel from './ReportInfoPanel'; // added import
+import PatientInfoPanel from './PatientInfoPanel'; // added import
 
 export default function InputPanel({ onUpdate }) {
     const initialState = {
         reportDate: new Date().toISOString().substring(0,10), // default to current date (yyyy-mm-dd)
         patientName: '',
-        patientAge: '',
+        // patientAge removed; will be calculated from dateOfBirth
+        dateOfBirth: '', // added new field
         gender: 'Female',
         mood: '',
         currentWeight: '',
@@ -34,8 +36,21 @@ export default function InputPanel({ onUpdate }) {
         setFormData({ ...formData, [name]: value });
     };
 
+    const computeAge = (dob) => {
+        if (!dob) return '';
+        const birthDate = new Date(dob);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    };
+
     const handleSubmit = () => {
-        onUpdate(formData);
+        const computedAge = computeAge(formData.dateOfBirth);
+        onUpdate({ ...formData, patientAge: computedAge });
         setFormData(initialState);
     };
 
@@ -43,40 +58,12 @@ export default function InputPanel({ onUpdate }) {
         <div className="input-panel">
             <h2>Input Panel</h2>
             <ReportInfoPanel formData={formData} handleChange={handleChange} /> {/* Added Report Info panel on top */}
-            <label>
-                Patient Name:
-                <input type="text" name="patientName" value={formData.patientName} onChange={handleChange} />
-            </label>
-            <label>
-                Patient Age:
-                <input type="number" name="patientAge" value={formData.patientAge} onChange={handleChange} />
-            </label>
-            <label>
-                Gender:
-                <select name="gender" value={formData.gender} onChange={handleChange}>
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
-                    <option value="Non-Binary">Non-Binary</option>
-                </select>
-            </label>
-            <label>
-                Mood:
-                <input type="text" name="mood" value={formData.mood} onChange={handleChange} />
-            </label>
-            <label>
-                Current Weight:
-                <input type="number" name="currentWeight" value={formData.currentWeight} onChange={handleChange} />
-            </label>
+            <PatientInfoPanel formData={formData} handleChange={handleChange} setFormData={setFormData} /> {/* Added Patient Info panel below Report Info panel */}
+            {/* Removed duplicate PatientInfoPanel fields: Patient Name, Patient Age, Gender, Current Weight, and Height */}
+            {/* Removed mood label from here */}
             <label>
                 Target Weight:
                 <input type="number" name="targetWeight" value={formData.targetWeight} onChange={handleChange} />
-            </label>
-            <label>
-                Height:
-                <HeightInput 
-                  value={parseInt(formData.height, 10) || 0} 
-                  onChange={(newHeight) => setFormData({ ...formData, height: newHeight })}
-                />
             </label>
             <label>
                 Current Challenges:
@@ -114,7 +101,6 @@ export default function InputPanel({ onUpdate }) {
                 Legal Drug Use:
                 <textarea name="legalDrugUse" value={formData.legalDrugUse} onChange={handleChange}></textarea>
             </label>
-            {/* Removed the existing Substance Usage textarea */}
             <ConditionalTextArea 
                 label="Has Addiction HIstory" 
                 defaultValue={`${(genderData[formData.gender] || genderData['Female']).pronoun} denies any history of heavy or problemactic substance abuse`} 
