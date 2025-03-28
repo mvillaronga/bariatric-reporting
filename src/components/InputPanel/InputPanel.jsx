@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './InputPanel.css';
 import HeightInput from './HeightInput';
-import ConditionalTextArea from './ConditionalTextArea'; // updated import
-import genderData from '../../data/genderData'; // added import
-import ReportInfoPanel from './ReportInfoPanel'; // added import
-import PatientInfoPanel from './PatientInfoPanel'; // added import
-import EvaluationPanel from './EvaluationPanel'; // added import
+import ConditionalTextArea from './ConditionalTextArea';
+import genderData from '../../data/genderData';
+import ReportInfoPanel from './ReportInfoPanel';
+import PatientInfoPanel from './PatientInfoPanel';
+import EvaluationPanel from './EvaluationPanel';
+import MedicalHistoryPanel from './MedicalHistoryPanel'; // added import
 
 export default function InputPanel({ onUpdate }) {
     const initialState = {
-        reportDate: new Date().toISOString().substring(0,10), // default to current date (yyyy-mm-dd)
+        reportDate: new Date().toISOString().substring(0,10),
         patientName: '',
-        // patientAge removed; will be calculated from dateOfBirth
-        dateOfBirth: '', // added new field
+        dateOfBirth: '',
         gender: 'Female',
         mood: '',
         currentWeight: '',
@@ -58,35 +58,11 @@ export default function InputPanel({ onUpdate }) {
     return (
         <div className="input-panel">
             <h2>Input Panel</h2>
-            <ReportInfoPanel formData={formData} handleChange={handleChange} /> {/* Added Report Info panel on top */}
-            <PatientInfoPanel formData={formData} handleChange={handleChange} setFormData={setFormData} /> {/* Added Patient Info panel below Report Info panel */}
-            {/* Removed duplicate PatientInfoPanel fields: Patient Name, Patient Age, Gender, Current Weight, and Height */}
-            {/* Removed mood label from here */}
-            <EvaluationPanel formData={formData} handleChange={handleChange} /> {/* New Evaluation panel */}
-            <label>
-                Associated Conditions:
-                <textarea name="associatedConditions" value={formData.associatedConditions} onChange={handleChange}></textarea>
-            </label>
-            <label>
-                Sleep Hours:
-                <input type="text" name="sleepHours" value={formData.sleepHours} onChange={handleChange} />
-            </label>
-            <label>
-                Sleep Status:
-                <input type="text" name="sleepStatus" value={formData.sleepStatus} onChange={handleChange} />
-            </label>
-            <label>
-                Current Medications:
-                <textarea name="currentMedications" value={formData.currentMedications} onChange={handleChange}></textarea>
-            </label>
-            <label>
-                Legal Drug Use:
-                <textarea name="legalDrugUse" value={formData.legalDrugUse} onChange={handleChange}></textarea>
-            </label>
-            <ConditionalTextArea 
-                label="Has Addiction HIstory" 
-                defaultValue={`${(genderData[formData.gender] || genderData['Female']).pronoun} denies any history of heavy or problemactic substance abuse`} 
-            />
+            <ReportInfoPanel formData={formData} handleChange={handleChange} />
+            <PatientInfoPanel formData={formData} handleChange={handleChange} setFormData={setFormData} />
+            <EvaluationPanel formData={formData} handleChange={handleChange} />
+            {/* Removed fields for associatedConditions, sleepHours, sleepStatus, currentMedications, legalDrugUse, and ConditionalTextArea */}
+            <MedicalHistoryPanel formData={formData} handleChange={handleChange} />
             <button onClick={handleSubmit}>Update Report</button>
         </div>
     );
