@@ -52,7 +52,7 @@ export default function InputPanel({ onUpdate }) {
     const handleSubmit = () => {
         const computedAge = computeAge(formData.dateOfBirth);
         onUpdate({ ...formData, patientAge: computedAge });
-        setFormData(initialState);
+        // Removed form reset to maintain input values
     };
 
     return (
