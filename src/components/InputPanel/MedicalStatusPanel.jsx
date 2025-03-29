@@ -8,8 +8,14 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
             <legend>Medical Status</legend> {/* updated legend */}
             <label>
                 Medical Concerns:
-                <textarea name="medicalConcerns" value={formData.medicalConcerns} onChange={handleChange} />
+                <textarea name="medicalConcerns" rows="4" value={formData.medicalConcerns} onChange={handleChange} />
             </label>
+            {/* Added Medical History conditional text area */}
+            <ConditionalTextArea 
+                label="Medical History" 
+                defaultValue="" 
+                onValueChange={(value) => handleChange({ target: { name: 'medicalHistory', value } })}
+            />
             <label>
                 Sleep Satisfaction:
                 <input 

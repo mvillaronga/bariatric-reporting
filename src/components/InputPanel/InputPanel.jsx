@@ -24,7 +24,6 @@ export default function InputPanel({ onUpdate }) {
         previousDiagnosis: '',
         goals: '',
         associatedConditions: '',
-        // Removed sleepHours and sleepStatus from initial state
         currentMedications: '',
         medications: '',
         substanceUsage: '',
@@ -35,10 +34,11 @@ export default function InputPanel({ onUpdate }) {
         tobaccoUse: 'No current tobacco use',
         nap: '',
         excessiveDaytimeSleepiness: false,
-        totalSleepTime: '',  // new field added
+        totalSleepTime: '',  
         sleepApnea: false,
         cpap: false,
-        sleepSatisfaction: false   // new field added
+        sleepSatisfaction: false,
+        medicalHistory: ""   // new field added
     };
     const [formData, setFormData] = useState(initialState);
 
