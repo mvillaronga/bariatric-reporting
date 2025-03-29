@@ -18,6 +18,16 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
                 Sleep Status:
                 <input type="text" name="sleepStatus" value={formData.sleepStatus} onChange={handleChange} />
             </label>
+            {/* Added Excessive Daytime Sleepiness checkbox */}
+            <label>
+                Excessive Daytime Sleepiness:
+                <input 
+                  type="checkbox" 
+                  name="excessiveDaytimeSleepiness" 
+                  checked={formData.excessiveDaytimeSleepiness} 
+                  onChange={handleChange} 
+                />
+            </label>
             {/* Added Nap entry field */}
             <ConditionalTextArea 
                 label="Nap" 

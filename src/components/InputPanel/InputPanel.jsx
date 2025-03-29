@@ -36,12 +36,13 @@ export default function InputPanel({ onUpdate }) {
         cannabisUse: 'No current cannabis use',
         tobaccoUse: 'No current tobacco use',
         nap: '',  // new field for Nap
+        excessiveDaytimeSleepiness: false,  // new field
     };
     const [formData, setFormData] = useState(initialState);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        const { name, type, checked, value } = e.target;
+        setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
     };
 
     const computeAge = (dob) => {

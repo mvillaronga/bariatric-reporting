@@ -34,7 +34,8 @@ export default function Report({
     reportDate,
     subjectName,
     subjectDOB,
-    nap   // new prop
+    nap,   // new prop
+    excessiveDaytimeSleepiness  // new prop
 }) {
     return (
         <div className="report-container">
@@ -78,6 +79,7 @@ export default function Report({
                 cannabisUse={cannabisUse}
                 tobaccoUse={tobaccoUse}
                 nap={nap}  // passing the new nap value
+                excessiveDaytimeSleepiness={excessiveDaytimeSleepiness}  // passing the new value
             />
         </div>
     );
@@ -111,4 +113,5 @@ Report.propTypes = {
     subjectName: PropTypes.string.isRequired,
     subjectDOB: PropTypes.string.isRequired,
     nap: PropTypes.string.isRequired,  // new propType
+    excessiveDaytimeSleepiness: PropTypes.bool.isRequired  // new propType
 };

@@ -15,7 +15,8 @@ export default function MedicalStatus({
     cannabisUse,
     tobaccoUse,
     nap,
-    gender
+    gender,
+    excessiveDaytimeSleepiness  // new prop
 }) {
     const { pronoun, objectPronoun, capitalPronoun } = genderData[gender] || genderData["Female"];
 
@@ -27,9 +28,12 @@ export default function MedicalStatus({
 
             {capitalPronoun} is satisfied with {objectPronoun} sleep quality and quantity. 
 
-            ${capitalPronoun} estimates a typical total sleep time of {sleepHours} hours a night and feels {sleepStatus} during the day.
+            {capitalPronoun} estimates a typical total sleep time of {sleepHours} hours a night and feels {sleepStatus} during the day.
 
-            {patientName} takes medications as prescribed.
+            {excessiveDaytimeSleepiness
+                ? `${capitalPronoun} claims excessive daytime sleepiness.`
+                : `${capitalPronoun} denies excessive daytime sleepiness.`}
+            &nbsp;&nbsp;
 
             {nap}&nbsp;&nbsp;
 
@@ -64,4 +68,5 @@ MedicalStatus.propTypes = {
     tobaccoUse: PropTypes.string.isRequired,
     nap: PropTypes.string.isRequired,  // new propType
     gender: PropTypes.string.isRequired,  // new propType
+    excessiveDaytimeSleepiness: PropTypes.bool.isRequired,  // new propType
 };
