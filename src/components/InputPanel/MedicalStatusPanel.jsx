@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ConditionalTextArea from './ConditionalTextArea';
+import CheckboxField from '../common/CheckboxField'; // new import
 
-export default function MedicalStatusPanel({ formData, handleChange }) { // updated component name
+export default function MedicalStatusPanel({ formData, handleChange }) { // updated component name and checkbox layout
     return (
         <fieldset>
             <legend>Medical Status</legend> {/* updated legend */}
@@ -22,36 +23,26 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
                 defaultValue=""
                 onValueChange={(value) => handleChange({ target: { name: 'painComplaint', value } })}
             />
-            <label>
-                Sleep Satisfaction:
-                <input 
-                  type="checkbox" 
-                  name="sleepSatisfaction"
-                  checked={formData.sleepSatisfaction}
-                  onChange={handleChange} 
-                />
-            </label>
-            {/* --- Moved Sleep Apnea and CPAP fields above Total Sleep Time --- */}
-            <label>
-                Sleep Apnea:
-                <input 
-                  type="checkbox" 
-                  name="sleepApnea" 
-                  checked={formData.sleepApnea} 
-                  onChange={handleChange} 
-                />
-            </label>
-            <label>
-                CPAP:
-                <input 
-                  type="checkbox" 
-                  name="cpap" 
-                  checked={formData.cpap} 
-                  disabled={!formData.sleepApnea} 
-                  onChange={handleChange}
-                />
-            </label>
-            {/* --- Total Sleep Time field --- */}
+            {/* Replace inline checkbox fields with CheckboxField component */}
+            <CheckboxField 
+                name="sleepSatisfaction"
+                label="Sleep Satisfaction"
+                checked={formData.sleepSatisfaction}
+                onChange={handleChange}
+            />
+            <CheckboxField 
+                name="sleepApnea"
+                label="Sleep Apnea"
+                checked={formData.sleepApnea}
+                onChange={handleChange}
+            />
+            <CheckboxField 
+                name="cpap"
+                label="CPAP"
+                checked={formData.cpap}
+                disabled={!formData.sleepApnea}
+                onChange={handleChange}
+            />
             <label>
                 Total Sleep Time:
                 <input 
@@ -61,16 +52,12 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
                   onChange={handleChange} 
                 />
             </label>
-            {/* Added Excessive Daytime Sleepiness checkbox */}
-            <label>
-                Excessive Daytime Sleepiness:
-                <input 
-                  type="checkbox" 
-                  name="excessiveDaytimeSleepiness" 
-                  checked={formData.excessiveDaytimeSleepiness} 
-                  onChange={handleChange} 
-                />
-            </label>
+            <CheckboxField 
+                name="excessiveDaytimeSleepiness"
+                label="Excessive Daytime Sleepiness"
+                checked={formData.excessiveDaytimeSleepiness}
+                onChange={handleChange}
+            />
             {/* Added Nap entry field */}
             <ConditionalTextArea 
                 label="Nap" 
