@@ -37,7 +37,8 @@ function App() {
         excessiveDaytimeSleepiness: false,  
         totalSleepTime: "",
         sleepApnea: false,
-        cpap: false
+        cpap: false,
+        sleepSatisfaction: false   // new field added
     });
 
     const handleUpdate = (data) => {

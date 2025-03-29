@@ -16,8 +16,9 @@ export default function MedicalStatus({
     gender,
     excessiveDaytimeSleepiness,
     totalSleepTime,
-    sleepApnea,   // new prop
-    cpap         // new prop
+    sleepApnea,   
+    cpap,        
+    sleepSatisfaction  // new prop
 }) {
     const { pronoun, objectPronoun, capitalPronoun } = genderData[gender] || genderData["Female"];
     const displaySleepTime = totalSleepTime.trim() ? totalSleepTime : "Sleeping like a baby 8 hours per day";
@@ -27,6 +28,8 @@ export default function MedicalStatus({
         : sleepApnea && !cpap
             ? `${capitalPronoun} reports sleep apnea and does not use a CPAP device.`
             : `${capitalPronoun} reports sleep apnea and regularly uses a CPAP device.`;
+    
+    const sleepSatisfactionMessage = `The patient is ${sleepSatisfaction ? "satisfied" : "dissatisfied"} with ${objectPronoun} overall sleep quality and quantity.`;
 
     return (
         <p>
@@ -34,6 +37,8 @@ export default function MedicalStatus({
             <br />
             As stated above, {pronoun} has {associatedConditions}. 
             <br />
+            {sleepSatisfactionMessage}
+            {sleepApneaMessage}
             {excessiveDaytimeSleepiness
                 ? `${capitalPronoun} claims excessive daytime sleepiness.`
                 : `${capitalPronoun} denies excessive daytime sleepiness.`}
@@ -46,8 +51,6 @@ export default function MedicalStatus({
             {caffeineUse}&nbsp;&nbsp;
             {illicitDrugUse}&nbsp;&nbsp;
             {substanceUsage}&nbsp;&nbsp;
-            <br />
-            {sleepApneaMessage}
         </p>
     );
 }
@@ -66,6 +69,7 @@ MedicalStatus.propTypes = {
     gender: PropTypes.string.isRequired,
     excessiveDaytimeSleepiness: PropTypes.bool.isRequired,
     totalSleepTime: PropTypes.string.isRequired,
-    sleepApnea: PropTypes.bool.isRequired,   // new propType
-    cpap: PropTypes.bool.isRequired           // new propType
+    sleepApnea: PropTypes.bool.isRequired,
+    cpap: PropTypes.bool.isRequired,
+    sleepSatisfaction: PropTypes.bool.isRequired  // new propType
 };

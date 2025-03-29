@@ -37,7 +37,8 @@ export default function InputPanel({ onUpdate }) {
         excessiveDaytimeSleepiness: false,
         totalSleepTime: '',  // new field added
         sleepApnea: false,
-        cpap: false
+        cpap: false,
+        sleepSatisfaction: false   // new field added
     };
     const [formData, setFormData] = useState(initialState);
 

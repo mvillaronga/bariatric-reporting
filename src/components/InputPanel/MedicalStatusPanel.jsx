@@ -10,6 +10,15 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
                 Associated Conditions:
                 <textarea name="associatedConditions" value={formData.associatedConditions} onChange={handleChange} />
             </label>
+            <label>
+                Sleep Satisfaction:
+                <input 
+                  type="checkbox" 
+                  name="sleepSatisfaction"
+                  checked={formData.sleepSatisfaction}
+                  onChange={handleChange} 
+                />
+            </label>
             {/* --- Moved Sleep Apnea and CPAP fields above Total Sleep Time --- */}
             <label>
                 Sleep Apnea:
