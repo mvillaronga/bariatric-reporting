@@ -7,8 +7,8 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
         <fieldset>
             <legend>Medical Status</legend> {/* updated legend */}
             <label>
-                Associated Conditions:
-                <textarea name="associatedConditions" value={formData.associatedConditions} onChange={handleChange} />
+                Medical Concerns:
+                <textarea name="medicalConcerns" value={formData.medicalConcerns} onChange={handleChange} />
             </label>
             <label>
                 Sleep Satisfaction:

@@ -4,7 +4,7 @@ import genderData from '../../data/genderData';
 
 export default function MedicalStatus({
     patientName,
-    associatedConditions,
+    medicalConcerns,
     medications,
     substanceUsage,
     illicitDrugUse,
@@ -34,9 +34,11 @@ export default function MedicalStatus({
     return (
         <p>
             {patientName}’s medical status is remarkable for a number of conditions other than morbid obesity.
-            <br />
-            As stated above, {pronoun} has {associatedConditions}. 
-            <br />
+            
+            As stated above, {pronoun} has {medicalConcerns}. 
+            
+            
+
             {sleepSatisfactionMessage}
             {sleepApneaMessage}
             {excessiveDaytimeSleepiness
@@ -57,7 +59,7 @@ export default function MedicalStatus({
 
 MedicalStatus.propTypes = {
     patientName: PropTypes.string.isRequired,
-    associatedConditions: PropTypes.string.isRequired,
+    medicalConcerns: PropTypes.string.isRequired,
     medications: PropTypes.string.isRequired,
     substanceUsage: PropTypes.string.isRequired,
     illicitDrugUse: PropTypes.string.isRequired,

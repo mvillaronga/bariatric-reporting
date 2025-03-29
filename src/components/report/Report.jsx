@@ -20,7 +20,7 @@ export default function Report({
     reasons,
     previousDiagnosis,
     goals,
-    associatedConditions,
+    medicalConcerns, // renamed prop
     sleepHours,
     sleepStatus,
     currentMedications,
@@ -72,7 +72,7 @@ export default function Report({
             />
             <MedicalStatus  
                 patientName={patientName}
-                associatedConditions={associatedConditions}
+                medicalConcerns={medicalConcerns} // renamed prop
                 sleepHours={sleepHours}
                 sleepStatus={sleepStatus}
                 medications={medications}
@@ -106,7 +106,7 @@ Report.propTypes = {
     reasons: PropTypes.string.isRequired,
     previousDiagnosis: PropTypes.string.isRequired,
     goals: PropTypes.string.isRequired,
-    associatedConditions: PropTypes.string.isRequired,
+    medicalConcerns: PropTypes.string.isRequired, // renamed propType
     sleepHours: PropTypes.string.isRequired,
     sleepStatus: PropTypes.string.isRequired,
     currentMedications: PropTypes.string.isRequired,
