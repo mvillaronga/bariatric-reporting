@@ -24,19 +24,19 @@ export default function MedicalStatus({
             
             {patientName} takes medications as prescribed.
             
-            {legalDrugUse}
+            {legalDrugUse}&nbsp;&nbsp;
 
-            {tobaccoUse}
+            {tobaccoUse}&nbsp;&nbsp;
             
-            {cannabisUse}
+            {cannabisUse}&nbsp;&nbsp;
             
-            {alcoholUse}
+            {alcoholUse}&nbsp;&nbsp;
             
-            {caffeineUse}
+            {caffeineUse}&nbsp;&nbsp;
             
-            {illicitDrugUse} 
+            {illicitDrugUse}&nbsp;&nbsp; 
                         
-            {substanceUsage}
+            {substanceUsage}&nbsp;&nbsp;
         </p>
     );
 }
