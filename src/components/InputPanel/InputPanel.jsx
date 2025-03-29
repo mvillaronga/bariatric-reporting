@@ -24,19 +24,17 @@ export default function InputPanel({ onUpdate }) {
         previousDiagnosis: '',
         goals: '',
         associatedConditions: '',
-        sleepHours: '',
-        sleepStatus: '',
+        // Removed sleepHours and sleepStatus from initial state
         currentMedications: '',
-        // Rename legalDrugUse to medications:
         medications: '',
         substanceUsage: '',
-        illicitDrugUse: 'No current illicit drug use',  // new field
+        illicitDrugUse: 'No current illicit drug use',
         caffeineUse: 'No current caffeine use',
         alcoholUse: 'No current alcohol use',
         cannabisUse: 'No current cannabis use',
         tobaccoUse: 'No current tobacco use',
-        nap: '',  // new field for Nap
-        excessiveDaytimeSleepiness: false,  // new field
+        nap: '',
+        excessiveDaytimeSleepiness: false,
     };
     const [formData, setFormData] = useState(initialState);
 
@@ -68,7 +66,7 @@ export default function InputPanel({ onUpdate }) {
             <ReportInfoPanel formData={formData} handleChange={handleChange} />
             <PatientInfoPanel formData={formData} handleChange={handleChange} setFormData={setFormData} />
             <EvaluationPanel formData={formData} handleChange={handleChange} />
-            {/* Removed fields for associatedConditions, sleepHours, sleepStatus, currentMedications, medications, and ConditionalTextArea */}
+            {/* Removed fields for associated sleepHours and sleepStatus */}
             <MedicalStatusPanel formData={formData} handleChange={handleChange} />
             <button onClick={handleSubmit}>Update Report</button>
         </div>

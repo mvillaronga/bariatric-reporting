@@ -10,14 +10,6 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
                 Associated Conditions:
                 <textarea name="associatedConditions" value={formData.associatedConditions} onChange={handleChange} />
             </label>
-            <label>
-                Sleep Hours:
-                <input type="text" name="sleepHours" value={formData.sleepHours} onChange={handleChange} />
-            </label>
-            <label>
-                Sleep Status:
-                <input type="text" name="sleepStatus" value={formData.sleepStatus} onChange={handleChange} />
-            </label>
             {/* Added Excessive Daytime Sleepiness checkbox */}
             <label>
                 Excessive Daytime Sleepiness:
