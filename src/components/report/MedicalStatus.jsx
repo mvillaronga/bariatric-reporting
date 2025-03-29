@@ -19,7 +19,8 @@ export default function MedicalStatus({
     sleepApnea,   
     cpap,        
     sleepSatisfaction,  // new prop
-    medicalHistory      // new prop
+    medicalHistory,     // new prop
+    painComplaint       // new prop
 }) {
     const { pronoun, objectPronoun, capitalPronoun } = genderData[gender] || genderData["Female"];
     const displaySleepTime = totalSleepTime.trim() ? totalSleepTime : "Sleeping like a baby 8 hours per day";
@@ -38,11 +39,9 @@ export default function MedicalStatus({
             
             As stated above, {pronoun} has {medicalConcerns}. 
             
-            {medicalHistory && (
-                <div>
-                    <strong>Medical History: </strong>{medicalHistory}
-                </div>
-            )}
+            {medicalHistory}
+            
+            {painComplaint}
 
             {sleepSatisfactionMessage}
             {sleepApneaMessage}
@@ -79,5 +78,6 @@ MedicalStatus.propTypes = {
     sleepApnea: PropTypes.bool.isRequired,
     cpap: PropTypes.bool.isRequired,
     sleepSatisfaction: PropTypes.bool.isRequired,  // new propType
-    medicalHistory: PropTypes.string.isRequired      // new propType
+    medicalHistory: PropTypes.string.isRequired,     // new propType
+    painComplaint: PropTypes.string.isRequired         // new propType
 };

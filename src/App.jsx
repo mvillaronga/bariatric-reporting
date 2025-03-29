@@ -39,7 +39,8 @@ function App() {
         sleepApnea: false,
         cpap: false,
         sleepSatisfaction: false,  // new field added
-        medicalHistory: ""         // new field added
+        medicalHistory: "",        // new field added
+        painComplaint: ""          // new field added
     });
 
     const handleUpdate = (data) => {

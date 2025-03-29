@@ -38,7 +38,8 @@ export default function InputPanel({ onUpdate }) {
         sleepApnea: false,
         cpap: false,
         sleepSatisfaction: false,
-        medicalHistory: ""   // new field added
+        medicalHistory: "",   // new field added
+        painComplaint: ""     // new field added
     };
     const [formData, setFormData] = useState(initialState);
 

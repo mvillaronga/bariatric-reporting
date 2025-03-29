@@ -16,6 +16,12 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
                 defaultValue="" 
                 onValueChange={(value) => handleChange({ target: { name: 'medicalHistory', value } })}
             />
+            {/* NEW: Pain Complaint field */}
+            <ConditionalTextArea 
+                label="Pain Complaint" 
+                defaultValue=""
+                onValueChange={(value) => handleChange({ target: { name: 'painComplaint', value } })}
+            />
             <label>
                 Sleep Satisfaction:
                 <input 

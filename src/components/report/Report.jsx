@@ -40,7 +40,8 @@ export default function Report({
     sleepApnea,    
     cpap,
     sleepSatisfaction,  // new prop
-    medicalHistory      // new prop
+    medicalHistory,     // new prop
+    painComplaint       // new prop
 }) {
     return (
         <div className="report-container">
@@ -90,6 +91,7 @@ export default function Report({
                 cpap={cpap}  
                 sleepSatisfaction={sleepSatisfaction}  // pass new prop
                 medicalHistory={medicalHistory}        // pass new prop
+                painComplaint={painComplaint}          // pass new prop
             />
         </div>
     );
@@ -128,5 +130,6 @@ Report.propTypes = {
     sleepApnea: PropTypes.bool.isRequired,      
     cpap: PropTypes.bool.isRequired,
     sleepSatisfaction: PropTypes.bool.isRequired,  // new propType
-    medicalHistory: PropTypes.string.isRequired      // new propType
+    medicalHistory: PropTypes.string.isRequired,     // new propType
+    painComplaint: PropTypes.string.isRequired         // new propType
 };
