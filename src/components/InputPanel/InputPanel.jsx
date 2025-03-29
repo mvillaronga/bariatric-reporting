@@ -35,7 +35,9 @@ export default function InputPanel({ onUpdate }) {
         tobaccoUse: 'No current tobacco use',
         nap: '',
         excessiveDaytimeSleepiness: false,
-        totalSleepTime: ''  // new field added
+        totalSleepTime: '',  // new field added
+        sleepApnea: false,
+        cpap: false
     };
     const [formData, setFormData] = useState(initialState);
 

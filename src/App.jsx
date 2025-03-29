@@ -35,7 +35,9 @@ function App() {
         subjectDOB: "04/08/1981",
         nap: "",  
         excessiveDaytimeSleepiness: false,  
-        totalSleepTime: ""  // new field added
+        totalSleepTime: "",
+        sleepApnea: false,
+        cpap: false
     });
 
     const handleUpdate = (data) => {

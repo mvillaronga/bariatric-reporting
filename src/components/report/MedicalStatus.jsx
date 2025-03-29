@@ -15,11 +15,18 @@ export default function MedicalStatus({
     nap,
     gender,
     excessiveDaytimeSleepiness,
-    totalSleepTime   // new prop received
+    totalSleepTime,
+    sleepApnea,   // new prop
+    cpap         // new prop
 }) {
     const { pronoun, objectPronoun, capitalPronoun } = genderData[gender] || genderData["Female"];
-    // Use default text when totalSleepTime is empty
     const displaySleepTime = totalSleepTime.trim() ? totalSleepTime : "Sleeping like a baby 8 hours per day";
+    
+    const sleepApneaMessage = !sleepApnea
+        ? `${capitalPronoun} reports no sleep apnea.`
+        : sleepApnea && !cpap
+            ? `${capitalPronoun} reports sleep apnea and does not use a CPAP device.`
+            : `${capitalPronoun} reports sleep apnea and regularly uses a CPAP device.`;
 
     return (
         <p>
@@ -31,7 +38,6 @@ export default function MedicalStatus({
                 ? `${capitalPronoun} claims excessive daytime sleepiness.`
                 : `${capitalPronoun} denies excessive daytime sleepiness.`}
             &nbsp;&nbsp;{nap}&nbsp;&nbsp;
-            {/* Display Total Sleep Time */}
             {displaySleepTime}&nbsp;&nbsp;
             {medications}&nbsp;&nbsp;
             {tobaccoUse}&nbsp;&nbsp;
@@ -40,6 +46,8 @@ export default function MedicalStatus({
             {caffeineUse}&nbsp;&nbsp;
             {illicitDrugUse}&nbsp;&nbsp;
             {substanceUsage}&nbsp;&nbsp;
+            <br />
+            {sleepApneaMessage}
         </p>
     );
 }
@@ -57,5 +65,7 @@ MedicalStatus.propTypes = {
     nap: PropTypes.string.isRequired,
     gender: PropTypes.string.isRequired,
     excessiveDaytimeSleepiness: PropTypes.bool.isRequired,
-    totalSleepTime: PropTypes.string.isRequired  // new propType
+    totalSleepTime: PropTypes.string.isRequired,
+    sleepApnea: PropTypes.bool.isRequired,   // new propType
+    cpap: PropTypes.bool.isRequired           // new propType
 };

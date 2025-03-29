@@ -26,7 +26,7 @@ export default function Report({
     currentMedications,
     medications,
     substanceUsage,
-    illicitDrugUse,  // new prop
+    illicitDrugUse,  
     caffeineUse,
     alcoholUse,
     cannabisUse,
@@ -34,9 +34,11 @@ export default function Report({
     reportDate,
     subjectName,
     subjectDOB,
-    nap,   // new prop
-    excessiveDaytimeSleepiness,  // new prop
-    totalSleepTime             // new prop added
+    nap,   
+    excessiveDaytimeSleepiness,  
+    totalSleepTime,             
+    sleepApnea,    // new prop
+    cpap         // new prop
 }) {
     return (
         <div className="report-container">
@@ -79,9 +81,11 @@ export default function Report({
                 alcoholUse={alcoholUse}
                 cannabisUse={cannabisUse}
                 tobaccoUse={tobaccoUse}
-                nap={nap}  // passing the new nap value
-                excessiveDaytimeSleepiness={excessiveDaytimeSleepiness}  // passing the new value
-                totalSleepTime={totalSleepTime}  // passing totalSleepTime
+                nap={nap}  
+                excessiveDaytimeSleepiness={excessiveDaytimeSleepiness}  
+                totalSleepTime={totalSleepTime}
+                sleepApnea={sleepApnea}      // pass new prop
+                cpap={cpap}                  // pass new prop
             />
         </div>
     );
@@ -106,7 +110,7 @@ Report.propTypes = {
     currentMedications: PropTypes.string.isRequired,
     medications: PropTypes.string.isRequired,
     substanceUsage: PropTypes.string.isRequired,
-    illicitDrugUse: PropTypes.string.isRequired,  // new propType
+    illicitDrugUse: PropTypes.string.isRequired,  
     caffeineUse: PropTypes.string.isRequired,
     alcoholUse: PropTypes.string.isRequired,
     cannabisUse: PropTypes.string.isRequired,
@@ -114,7 +118,9 @@ Report.propTypes = {
     reportDate: PropTypes.string.isRequired,
     subjectName: PropTypes.string.isRequired,
     subjectDOB: PropTypes.string.isRequired,
-    nap: PropTypes.string.isRequired,  // new propType
-    excessiveDaytimeSleepiness: PropTypes.bool.isRequired,  // new propType
-    totalSleepTime: PropTypes.string.isRequired  // new propType
+    nap: PropTypes.string.isRequired,  
+    excessiveDaytimeSleepiness: PropTypes.bool.isRequired,  
+    totalSleepTime: PropTypes.string.isRequired,  
+    sleepApnea: PropTypes.bool.isRequired,      // new propType
+    cpap: PropTypes.bool.isRequired               // new propType
 };

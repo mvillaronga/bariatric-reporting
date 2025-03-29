@@ -71,6 +71,26 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
                 label="Has Addiction History" 
                 defaultValue={`${(formData.gender === "Female" ? "she" : formData.gender === "Male" ? "he" : "they")} denies any history of heavy or problematic substance abuse`} 
             />
+            {/* New checkbox fields for Sleep Apnea and CPAP */}
+            <label>
+                Sleep Apnea:
+                <input 
+                  type="checkbox" 
+                  name="sleepApnea" 
+                  checked={formData.sleepApnea} 
+                  onChange={handleChange} 
+                />
+            </label>
+            <label>
+                CPAP:
+                <input 
+                  type="checkbox" 
+                  name="cpap" 
+                  checked={formData.cpap} 
+                  disabled={!formData.sleepApnea} 
+                  onChange={handleChange}
+                />
+            </label>
         </fieldset>
     );
 }
