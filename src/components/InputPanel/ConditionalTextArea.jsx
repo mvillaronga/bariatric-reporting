@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-export default function ConditionalTextArea({ label, defaultValue }) { // renamed function
+export default function ConditionalTextArea({ label, defaultValue, onValueChange }) { // added onValueChange prop
   const [isChecked, setIsChecked] = useState(false);
   const [textValue, setTextValue] = useState(defaultValue);
   const textareaRef = useRef(null); // added ref
@@ -13,10 +13,16 @@ export default function ConditionalTextArea({ label, defaultValue }) { // rename
     if (checked && textareaRef.current) {
       textareaRef.current.focus(); // set focus to the textarea
     }
+    if (onValueChange) {
+      onValueChange(''); // update with empty string when checkbox is toggled
+    }
   };
 
   const handleTextChange = (e) => {
     setTextValue(e.target.value);
+    if (onValueChange) {
+      onValueChange(e.target.value);
+    }
   };
 
   return (
@@ -36,11 +42,12 @@ export default function ConditionalTextArea({ label, defaultValue }) { // rename
   );
 }
 
-ConditionalTextArea.propTypes = { // updated propTypes
+ConditionalTextArea.propTypes = {
   label: PropTypes.string.isRequired,
   defaultValue: PropTypes.string,
+  onValueChange: PropTypes.func, // new propType
 };
 
-ConditionalTextArea.defaultProps = { // updated defaultProps
+ConditionalTextArea.defaultProps = {
   defaultValue: '',
 };

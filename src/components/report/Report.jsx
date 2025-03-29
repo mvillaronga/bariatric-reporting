@@ -4,7 +4,7 @@ import CoverSheet from './CoverSheet';
 import Opening from './Opening';
 import PatientInfo from './PatientInfo';
 import Evaluation from './Evaluation';
-import MedicalHistory from './MedicalHistory';
+import MedicalStatus from './MedicalStatus';
 import Header from './Header';
 
 export default function Report({
@@ -26,6 +26,7 @@ export default function Report({
     currentMedications,
     legalDrugUse,
     substanceUsage,
+    illicitDrugUse,  // new prop
     reportDate,
     subjectName,
     subjectDOB
@@ -57,15 +58,16 @@ export default function Report({
                 reasons={reasons}
                 previoiusDiagnosis={previousDiagnosis}
                 goals={goals}
-                currentMedications={currentMedications} // Moved currentMedications here
+                currentMedications={currentMedications}
             />
-            <MedicalHistory 
+            <MedicalStatus  
                 patientName={patientName}
                 associatedConditions={associatedConditions}
                 sleepHours={sleepHours}
                 sleepStatus={sleepStatus}
                 legalDrugUse={legalDrugUse}
                 substanceUsage={substanceUsage}
+                illicitDrugUse={illicitDrugUse}  // passing new value
             />
         </div>
     );
@@ -90,6 +92,7 @@ Report.propTypes = {
     currentMedications: PropTypes.string.isRequired,
     legalDrugUse: PropTypes.string.isRequired,
     substanceUsage: PropTypes.string.isRequired,
+    illicitDrugUse: PropTypes.string.isRequired,  // new propType
     reportDate: PropTypes.string.isRequired,
     subjectName: PropTypes.string.isRequired,
     subjectDOB: PropTypes.string.isRequired,

@@ -7,7 +7,7 @@ import genderData from '../../data/genderData';
 import ReportInfoPanel from './ReportInfoPanel';
 import PatientInfoPanel from './PatientInfoPanel';
 import EvaluationPanel from './EvaluationPanel';
-import MedicalHistoryPanel from './MedicalHistoryPanel'; // added import
+import MedicalStatusPanel from './MedicalStatusPanel';
 
 export default function InputPanel({ onUpdate }) {
     const initialState = {
@@ -29,6 +29,7 @@ export default function InputPanel({ onUpdate }) {
         currentMedications: '',
         legalDrugUse: '',
         substanceUsage: '',
+        illicitDrugUse: 'No current illicit drug use',  // new field
     };
     const [formData, setFormData] = useState(initialState);
 
@@ -52,7 +53,6 @@ export default function InputPanel({ onUpdate }) {
     const handleSubmit = () => {
         const computedAge = computeAge(formData.dateOfBirth);
         onUpdate({ ...formData, patientAge: computedAge });
-        // Removed form reset to maintain input values
     };
 
     return (
@@ -62,7 +62,7 @@ export default function InputPanel({ onUpdate }) {
             <PatientInfoPanel formData={formData} handleChange={handleChange} setFormData={setFormData} />
             <EvaluationPanel formData={formData} handleChange={handleChange} />
             {/* Removed fields for associatedConditions, sleepHours, sleepStatus, currentMedications, legalDrugUse, and ConditionalTextArea */}
-            <MedicalHistoryPanel formData={formData} handleChange={handleChange} />
+            <MedicalStatusPanel formData={formData} handleChange={handleChange} />
             <button onClick={handleSubmit}>Update Report</button>
         </div>
     );

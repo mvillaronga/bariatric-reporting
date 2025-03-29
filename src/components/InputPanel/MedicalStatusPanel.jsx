@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ConditionalTextArea from './ConditionalTextArea';
 
-export default function MedicalHistoryPanel({ formData, handleChange }) {
+export default function MedicalStatusPanel({ formData, handleChange }) { // updated component name
     return (
         <fieldset>
-            <legend>Medical History</legend>
+            <legend>Medical Status</legend> {/* updated legend */}
             <label>
                 Associated Conditions:
                 <textarea name="associatedConditions" value={formData.associatedConditions} onChange={handleChange} />
@@ -22,6 +22,12 @@ export default function MedicalHistoryPanel({ formData, handleChange }) {
                 Legal Drug Use:
                 <textarea name="legalDrugUse" value={formData.legalDrugUse} onChange={handleChange} />
             </label>
+            {/* New Illicit Drug Use field */}
+            <ConditionalTextArea 
+                label="Illicit Drug Use" 
+                defaultValue="No current illicit drug use" 
+                onValueChange={(value) => handleChange({ target: { name: 'illicitDrugUse', value } })}
+            />
             <ConditionalTextArea 
                 label="Has Addiction History" 
                 defaultValue={`${(formData.gender === "Female" ? "she" : formData.gender === "Male" ? "he" : "they")} denies any history of heavy or problematic substance abuse`} 
@@ -30,7 +36,7 @@ export default function MedicalHistoryPanel({ formData, handleChange }) {
     );
 }
 
-MedicalHistoryPanel.propTypes = {
+MedicalStatusPanel.propTypes = {
     formData: PropTypes.object.isRequired,
     handleChange: PropTypes.func.isRequired,
 };
