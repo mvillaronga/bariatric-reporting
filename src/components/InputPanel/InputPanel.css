@@ -72,6 +72,10 @@
     margin-top: 0.5rem;
 }
 
+.input-panel > button {
+    margin-top: 1.5rem;
+}
+
 @media print {
     .input-panel {
         display: none;
