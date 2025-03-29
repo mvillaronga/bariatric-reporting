@@ -24,7 +24,7 @@ export default function Report({
     sleepHours,
     sleepStatus,
     currentMedications,
-    legalDrugUse,
+    medications,
     substanceUsage,
     illicitDrugUse,  // new prop
     caffeineUse,
@@ -69,7 +69,7 @@ export default function Report({
                 associatedConditions={associatedConditions}
                 sleepHours={sleepHours}
                 sleepStatus={sleepStatus}
-                legalDrugUse={legalDrugUse}
+                medications={medications}
                 substanceUsage={substanceUsage}
                 illicitDrugUse={illicitDrugUse}
                 caffeineUse={caffeineUse}
@@ -98,7 +98,7 @@ Report.propTypes = {
     sleepHours: PropTypes.string.isRequired,
     sleepStatus: PropTypes.string.isRequired,
     currentMedications: PropTypes.string.isRequired,
-    legalDrugUse: PropTypes.string.isRequired,
+    medications: PropTypes.string.isRequired,
     substanceUsage: PropTypes.string.isRequired,
     illicitDrugUse: PropTypes.string.isRequired,  // new propType
     caffeineUse: PropTypes.string.isRequired,

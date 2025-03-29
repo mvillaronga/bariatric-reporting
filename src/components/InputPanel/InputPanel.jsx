@@ -27,7 +27,8 @@ export default function InputPanel({ onUpdate }) {
         sleepHours: '',
         sleepStatus: '',
         currentMedications: '',
-        legalDrugUse: '',
+        // Rename legalDrugUse to medications:
+        medications: '',
         substanceUsage: '',
         illicitDrugUse: 'No current illicit drug use',  // new field
         caffeineUse: 'No current caffeine use',
@@ -65,7 +66,7 @@ export default function InputPanel({ onUpdate }) {
             <ReportInfoPanel formData={formData} handleChange={handleChange} />
             <PatientInfoPanel formData={formData} handleChange={handleChange} setFormData={setFormData} />
             <EvaluationPanel formData={formData} handleChange={handleChange} />
-            {/* Removed fields for associatedConditions, sleepHours, sleepStatus, currentMedications, legalDrugUse, and ConditionalTextArea */}
+            {/* Removed fields for associatedConditions, sleepHours, sleepStatus, currentMedications, medications, and ConditionalTextArea */}
             <MedicalStatusPanel formData={formData} handleChange={handleChange} />
             <button onClick={handleSubmit}>Update Report</button>
         </div>

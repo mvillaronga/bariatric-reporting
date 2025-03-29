@@ -18,9 +18,10 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
                 Sleep Status:
                 <input type="text" name="sleepStatus" value={formData.sleepStatus} onChange={handleChange} />
             </label>
+            {/* Change Legal Drug Use to Medications */}
             <label>
-                Legal Drug Use:
-                <textarea name="legalDrugUse" value={formData.legalDrugUse} onChange={handleChange} />
+                Medications:
+                <textarea name="medications" rows="4" value={formData.medications} onChange={handleChange} />
             </label>
             {/* New Entry Fields in new order */}
             <ConditionalTextArea 

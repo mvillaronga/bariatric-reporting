@@ -6,7 +6,7 @@ export default function MedicalStatus({
     associatedConditions,
     sleepHours,
     sleepStatus,
-    legalDrugUse,
+    medications,
     substanceUsage,
     illicitDrugUse,  // new prop
     caffeineUse,
@@ -24,7 +24,7 @@ export default function MedicalStatus({
             
             {patientName} takes medications as prescribed.
             
-            {legalDrugUse}&nbsp;&nbsp;
+            {medications}&nbsp;&nbsp;
 
             {tobaccoUse}&nbsp;&nbsp;
             
@@ -46,7 +46,7 @@ MedicalStatus.propTypes = {
     associatedConditions: PropTypes.string.isRequired,
     sleepHours: PropTypes.string.isRequired,
     sleepStatus: PropTypes.string.isRequired,
-    legalDrugUse: PropTypes.string.isRequired,
+    medications: PropTypes.string.isRequired,
     substanceUsage: PropTypes.string.isRequired,
     illicitDrugUse: PropTypes.string.isRequired, // new propType
     caffeineUse: PropTypes.string.isRequired,
