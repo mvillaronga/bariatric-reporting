@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import genderData from '../../data/genderData';
 
 export default function MedicalStatus({
     patientName,
@@ -8,37 +9,42 @@ export default function MedicalStatus({
     sleepStatus,
     medications,
     substanceUsage,
-    illicitDrugUse,  // new prop
+    illicitDrugUse,
     caffeineUse,
     alcoholUse,
     cannabisUse,
     tobaccoUse,
-    nap    // new parameter
+    nap,
+    gender
 }) {
+    const { pronoun, objectPronoun, capitalPronoun } = genderData[gender] || genderData["Female"];
+
     return (
         <p>
             {patientName}’s medical status is remarkable for a number of conditions other than morbid obesity.
-            
-            As stated above, she has {associatedConditions}. 
-            
-            She is satisfied with her sleep quality and quantity.  She estimates a typical total sleep time of {sleepHours} hours a night and feels {sleepStatus} during the day.
-            
+
+            As stated above, {pronoun} has {associatedConditions}. 
+
+            {capitalPronoun} is satisfied with {objectPronoun} sleep quality and quantity. 
+
+            ${capitalPronoun} estimates a typical total sleep time of {sleepHours} hours a night and feels {sleepStatus} during the day.
+
             {patientName} takes medications as prescribed.
-            
+
             {nap}&nbsp;&nbsp;
-            
+
             {medications}&nbsp;&nbsp;
 
             {tobaccoUse}&nbsp;&nbsp;
-            
+
             {cannabisUse}&nbsp;&nbsp;
-            
+
             {alcoholUse}&nbsp;&nbsp;
-            
+
             {caffeineUse}&nbsp;&nbsp;
-            
-            {illicitDrugUse}&nbsp;&nbsp; 
-                        
+
+            {illicitDrugUse}&nbsp;&nbsp;
+
             {substanceUsage}&nbsp;&nbsp;
         </p>
     );
@@ -57,4 +63,5 @@ MedicalStatus.propTypes = {
     cannabisUse: PropTypes.string.isRequired,
     tobaccoUse: PropTypes.string.isRequired,
     nap: PropTypes.string.isRequired,  // new propType
+    gender: PropTypes.string.isRequired,  // new propType
 };
