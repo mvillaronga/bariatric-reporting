@@ -46,10 +46,11 @@ export default function ConditionalTextArea({ label, defaultValue, onValueChange
 
   return (
     <div>
-      <label>
-        <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange} />
-        {label}
-      </label>
+      {/* Modified row for checkbox and label */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+        <input type="checkbox" checked={isChecked} onChange={handleCheckboxChange} style={{ flexShrink: 0 }} />
+        <span style={{ marginLeft: '0.5rem', flex: 1 }}>{label}</span>
+      </div>
       <textarea
         ref={textareaRef}  // assign ref here
         value={textValue}
