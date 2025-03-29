@@ -33,7 +33,8 @@ export default function Report({
     tobaccoUse,
     reportDate,
     subjectName,
-    subjectDOB
+    subjectDOB,
+    nap   // new prop
 }) {
     return (
         <div className="report-container">
@@ -76,6 +77,7 @@ export default function Report({
                 alcoholUse={alcoholUse}
                 cannabisUse={cannabisUse}
                 tobaccoUse={tobaccoUse}
+                nap={nap}  // passing the new nap value
             />
         </div>
     );
@@ -108,4 +110,5 @@ Report.propTypes = {
     reportDate: PropTypes.string.isRequired,
     subjectName: PropTypes.string.isRequired,
     subjectDOB: PropTypes.string.isRequired,
+    nap: PropTypes.string.isRequired,  // new propType
 };

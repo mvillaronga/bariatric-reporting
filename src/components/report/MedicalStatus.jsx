@@ -12,7 +12,8 @@ export default function MedicalStatus({
     caffeineUse,
     alcoholUse,
     cannabisUse,
-    tobaccoUse
+    tobaccoUse,
+    nap    // new parameter
 }) {
     return (
         <p>
@@ -23,6 +24,8 @@ export default function MedicalStatus({
             She is satisfied with her sleep quality and quantity.  She estimates a typical total sleep time of {sleepHours} hours a night and feels {sleepStatus} during the day.
             
             {patientName} takes medications as prescribed.
+            
+            {nap}&nbsp;&nbsp;
             
             {medications}&nbsp;&nbsp;
 
@@ -53,4 +56,5 @@ MedicalStatus.propTypes = {
     alcoholUse: PropTypes.string.isRequired,
     cannabisUse: PropTypes.string.isRequired,
     tobaccoUse: PropTypes.string.isRequired,
+    nap: PropTypes.string.isRequired,  // new propType
 };

@@ -35,6 +35,7 @@ function App() {
         reportDate: "March 14, 2025",
         subjectName: "Mary Doe",
         subjectDOB: "04/08/1981",
+        nap: "",  // new initial nap value
     });
 
     const handleUpdate = (data) => {

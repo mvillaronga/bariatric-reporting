@@ -18,6 +18,12 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
                 Sleep Status:
                 <input type="text" name="sleepStatus" value={formData.sleepStatus} onChange={handleChange} />
             </label>
+            {/* Added Nap entry field */}
+            <ConditionalTextArea 
+                label="Nap" 
+                defaultValue=""
+                onValueChange={(value) => handleChange({ target: { name: 'nap', value } })}
+            />
             {/* Change Legal Drug Use to Medications */}
             <label>
                 Medications:

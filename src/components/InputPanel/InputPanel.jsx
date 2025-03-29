@@ -35,6 +35,7 @@ export default function InputPanel({ onUpdate }) {
         alcoholUse: 'No current alcohol use',
         cannabisUse: 'No current cannabis use',
         tobaccoUse: 'No current tobacco use',
+        nap: '',  // new field for Nap
     };
     const [formData, setFormData] = useState(initialState);
 
