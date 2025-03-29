@@ -33,8 +33,9 @@ function App() {
         reportDate: "March 14, 2025",
         subjectName: "Mary Doe",
         subjectDOB: "04/08/1981",
-        nap: "",  // new initial nap value
-        excessiveDaytimeSleepiness: false,  // new field for checkbox value
+        nap: "",  
+        excessiveDaytimeSleepiness: false,  
+        totalSleepTime: ""  // new field added
     });
 
     const handleUpdate = (data) => {
