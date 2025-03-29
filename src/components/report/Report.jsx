@@ -57,13 +57,13 @@ export default function Report({
                 reasons={reasons}
                 previoiusDiagnosis={previousDiagnosis}
                 goals={goals}
+                currentMedications={currentMedications} // Moved currentMedications here
             />
             <MedicalHistory 
                 patientName={patientName}
                 associatedConditions={associatedConditions}
                 sleepHours={sleepHours}
                 sleepStatus={sleepStatus}
-                currentMedications={currentMedications}
                 legalDrugUse={legalDrugUse}
                 substanceUsage={substanceUsage}
             />

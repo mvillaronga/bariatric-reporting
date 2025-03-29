@@ -46,6 +46,14 @@ export default function EvaluationPanel({ formData, handleChange }) {
           onChange={handleChange}>
         </textarea>
       </label>
+      <label>
+        Current Medications:
+        <textarea 
+          name="currentMedications" 
+          value={formData.currentMedications} 
+          onChange={handleChange}>
+        </textarea>
+      </label>
     </fieldset>
   );
 }

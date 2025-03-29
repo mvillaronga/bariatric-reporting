@@ -19,10 +19,6 @@ export default function MedicalHistoryPanel({ formData, handleChange }) {
                 <input type="text" name="sleepStatus" value={formData.sleepStatus} onChange={handleChange} />
             </label>
             <label>
-                Current Medications:
-                <textarea name="currentMedications" value={formData.currentMedications} onChange={handleChange} />
-            </label>
-            <label>
                 Legal Drug Use:
                 <textarea name="legalDrugUse" value={formData.legalDrugUse} onChange={handleChange} />
             </label>
