@@ -27,6 +27,11 @@ function App() {
         currentMedications: "losartan, phentermine, liraglutide, and fluconazole",
         legalDrugUse: "She does not use any tobacco or cannabis products, nor does she drink any caffeinated beverages. She rarely drinks alcohol.",
         substanceUsage: "She denies use of other substances and has no history of heavy or problematic substance use.",
+        illicitDrugUse: "No current illicit drug use",
+        caffeineUse: "No current caffeine use",
+        alcoholUse: "No current alcohol use",
+        cannabisUse: "No current cannabis use",
+        tobaccoUse: "No current tobacco use",
         reportDate: "March 14, 2025",
         subjectName: "Mary Doe",
         subjectDOB: "04/08/1981",
@@ -45,7 +50,7 @@ function App() {
     };
 
     return (
-        <div className="app-container"> {/* Added container */}
+        <div className="app-container">
             <InputPanel onUpdate={handleUpdate} />
             <Report {...reportData} />
         </div>

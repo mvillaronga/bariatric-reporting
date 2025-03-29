@@ -22,7 +22,27 @@ export default function MedicalStatusPanel({ formData, handleChange }) { // upda
                 Legal Drug Use:
                 <textarea name="legalDrugUse" value={formData.legalDrugUse} onChange={handleChange} />
             </label>
-            {/* New Illicit Drug Use field */}
+            {/* New Entry Fields in new order */}
+            <ConditionalTextArea 
+                label="Tobacco Use" 
+                defaultValue="No current tobacco use" 
+                onValueChange={(value) => handleChange({ target: { name: 'tobaccoUse', value } })}
+            />
+            <ConditionalTextArea 
+                label="Cannabis Use" 
+                defaultValue="No current cannabis use" 
+                onValueChange={(value) => handleChange({ target: { name: 'cannabisUse', value } })}
+            />
+            <ConditionalTextArea 
+                label="Alcohol Use" 
+                defaultValue="No current alcohol use" 
+                onValueChange={(value) => handleChange({ target: { name: 'alcoholUse', value } })}
+            />
+            <ConditionalTextArea 
+                label="Caffeine Use" 
+                defaultValue="No current caffeine use" 
+                onValueChange={(value) => handleChange({ target: { name: 'caffeineUse', value } })}
+            />
             <ConditionalTextArea 
                 label="Illicit Drug Use" 
                 defaultValue="No current illicit drug use" 

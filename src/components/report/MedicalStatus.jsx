@@ -8,7 +8,11 @@ export default function MedicalStatus({
     sleepStatus,
     legalDrugUse,
     substanceUsage,
-    illicitDrugUse  // new prop
+    illicitDrugUse,  // new prop
+    caffeineUse,
+    alcoholUse,
+    cannabisUse,
+    tobaccoUse
 }) {
     return (
         <p>
@@ -22,10 +26,17 @@ export default function MedicalStatus({
             
             {legalDrugUse}
 
+            {tobaccoUse}
+            
+            {cannabisUse}
+            
+            {alcoholUse}
+            
+            {caffeineUse}
+            
             {illicitDrugUse} 
                         
             {substanceUsage}
-  {/* new field */}
         </p>
     );
 }
@@ -38,4 +49,8 @@ MedicalStatus.propTypes = {
     legalDrugUse: PropTypes.string.isRequired,
     substanceUsage: PropTypes.string.isRequired,
     illicitDrugUse: PropTypes.string.isRequired, // new propType
+    caffeineUse: PropTypes.string.isRequired,
+    alcoholUse: PropTypes.string.isRequired,
+    cannabisUse: PropTypes.string.isRequired,
+    tobaccoUse: PropTypes.string.isRequired,
 };

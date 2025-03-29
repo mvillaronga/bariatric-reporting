@@ -27,6 +27,10 @@ export default function Report({
     legalDrugUse,
     substanceUsage,
     illicitDrugUse,  // new prop
+    caffeineUse,
+    alcoholUse,
+    cannabisUse,
+    tobaccoUse,
     reportDate,
     subjectName,
     subjectDOB
@@ -67,7 +71,11 @@ export default function Report({
                 sleepStatus={sleepStatus}
                 legalDrugUse={legalDrugUse}
                 substanceUsage={substanceUsage}
-                illicitDrugUse={illicitDrugUse}  // passing new value
+                illicitDrugUse={illicitDrugUse}
+                caffeineUse={caffeineUse}
+                alcoholUse={alcoholUse}
+                cannabisUse={cannabisUse}
+                tobaccoUse={tobaccoUse}
             />
         </div>
     );
@@ -93,6 +101,10 @@ Report.propTypes = {
     legalDrugUse: PropTypes.string.isRequired,
     substanceUsage: PropTypes.string.isRequired,
     illicitDrugUse: PropTypes.string.isRequired,  // new propType
+    caffeineUse: PropTypes.string.isRequired,
+    alcoholUse: PropTypes.string.isRequired,
+    cannabisUse: PropTypes.string.isRequired,
+    tobaccoUse: PropTypes.string.isRequired,
     reportDate: PropTypes.string.isRequired,
     subjectName: PropTypes.string.isRequired,
     subjectDOB: PropTypes.string.isRequired,

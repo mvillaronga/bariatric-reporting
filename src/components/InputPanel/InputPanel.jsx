@@ -30,6 +30,10 @@ export default function InputPanel({ onUpdate }) {
         legalDrugUse: '',
         substanceUsage: '',
         illicitDrugUse: 'No current illicit drug use',  // new field
+        caffeineUse: 'No current caffeine use',
+        alcoholUse: 'No current alcohol use',
+        cannabisUse: 'No current cannabis use',
+        tobaccoUse: 'No current tobacco use',
     };
     const [formData, setFormData] = useState(initialState);
 
